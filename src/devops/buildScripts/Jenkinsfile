@@ -6,6 +6,9 @@ node {
         println "Git Info:"
         println scmVars.GIT_BRANCH
         println scm.branches[0].name
+        println scmVars.GIT_COMMIT
+        println scmVars.GIT_PREVIOUS_COMMIT
+        println scmVars.GIT_PREVIOUS_SUCCESSFUL_COMMIT
         println "-------- END"
 
         if (scmVars.GIT_COMMIT == scmVars.GIT_PREVIOUS_SUCCESSFUL_COMMIT) {

@@ -1,0 +1,61 @@
+{
+  "name": "adpq2018-web",
+  "version": "0.0.1",
+  "description": "Homeowners Toolbox Inc. submission for the California Department of Technology ADPQ in 2018",
+  "keywords": [
+    "ADPQ",
+    "2018"
+  ],
+  "license": "UNLICENSED",
+  "bugs": "https://github.com/user/repo/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/user/repo.git"
+  },
+  "contributors": [
+    {
+      "name": "Noel Eom",
+      "email": "neom@hotbsoftware.com"
+    },
+    {
+      "name": "Raghu Jonnala",
+      "email": "rjonnala@counselordirect.com"
+    },
+    {
+      "name": "Eric Dobyns",
+      "email": "edobyns@hotbsoftware.com"
+    },
+    {
+      "name": "Ken Baker",
+      "email": "kbaker@hotbsoftware.com"
+    },
+    {
+      "name": "Mike Firoved",
+      "email": "mfiroved@counselordirect.com"
+    }
+  ],
+  "main": "./src/app.js",
+  "scripts": {
+    "start": "node ./src/app.js",
+    "build": "",
+    "clean": "",
+    "lint": "./node_modules/.bin/eslint . --fix",
+    "test": ""
+  },
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "helmet": "^3.9.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.17.0"
+  },
+  "engines": {
+    "node": "",
+    "npm": ""
+  },
+  "os": [
+    "any"
+  ],
+  "private": false
+}

@@ -12,7 +12,7 @@ node {
         println "-------- END"
 
         if (scmVars.GIT_COMMIT == scmVars.GIT_PREVIOUS_SUCCESSFUL_COMMIT) {
-            println "Neither master or staging branch, do nothing..."
+            println "Nothing new to commit OR this is neither the master or staging branch"
         } else {
             if (scmVars.GIT_BRANCH == 'origin/staging') {
                 println "Staging Branch"

@@ -3,7 +3,7 @@
     "volumes": [
         {
             "name": "adpq-db",
-            "host": "./data/db"
+            "host": "/data/db"
         }
     ],
     "containerDefinitions": [

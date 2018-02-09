@@ -38,6 +38,7 @@
     "start": "docker-compose up --build -d && sleep 1 && open http://localhost",
     "build": "docker-compose build --force-rm --no-cache --pull",
     "teardown": "docker rm -f 'adpq2018_web_1' && docker rm -f 'adpq2018_server_1' && docker rm -f 'adpq2018_db_1'",
+    "clean": "npm run clean:docker && npm run clean:db",
     "clean:docker": "docker rmi 'adpq2018_web' && docker rmi 'adpq2018_server' && docker rmi 'mongo'",
     "clean:db": "rm -rf ./data"
   },

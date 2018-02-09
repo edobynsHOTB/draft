@@ -10,19 +10,6 @@
     ],
     "containerDefinitions": [
         {
-            "image": "%REPOSITORY_URI_SERVER%:v_%BUILD_NUMBER%",
-            "name": "adpq-server",
-            "cpu": 10,
-            "memory": 256,
-            "essential": true,
-            "portMappings": [
-                {
-                    "containerPort": 3001,
-                    "hostPort": 3001
-                }
-            ]
-        },
-        {
             "image": "%REPOSITORY_URI_WEB%:v_%BUILD_NUMBER%",
             "name": "adpq-web",
             "cpu": 10,
@@ -36,7 +23,20 @@
             ]
         },
         {
-            "image": "registry.hub.docker.com/library/mongo:latest",
+            "image": "%REPOSITORY_URI_SERVER%:v_%BUILD_NUMBER%",
+            "name": "adpq-server",
+            "cpu": 10,
+            "memory": 256,
+            "essential": true,
+            "portMappings": [
+                {
+                    "containerPort": 3001,
+                    "hostPort": 3001
+                }
+            ]
+        },
+        {
+            "image": "registry.hub.docker.com/library/mongo:3.6.2",
             "name": "adpq-db",
             "cpu": 10,
             "memory": 256,

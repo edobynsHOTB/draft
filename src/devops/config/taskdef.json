@@ -3,7 +3,9 @@
     "volumes": [
         {
             "name": "adpq-db",
-            "host": "/data/db"
+            "host": { 
+                "sourcePath": "/data/db"
+            }
         }
     ],
     "containerDefinitions": [

@@ -5,6 +5,7 @@ node {
 
         println "Git Info:"
         println scm
+        println scm.branches
         println scmVars
         println scmVars.GIT_BRANCH
         println scm.branches[0].name

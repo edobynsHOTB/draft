@@ -34,7 +34,7 @@
             ]
         },
         {
-            "image": "mongo:latest",
+            "image": "registry.hub.docker.com/library/mongo:latest",
             "name": "adpq-db",
             "cpu": 10,
             "memory": 256,

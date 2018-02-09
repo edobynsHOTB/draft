@@ -35,11 +35,10 @@
     }
   ],
   "scripts": {
+    "start": "docker-compose up --build -d && sleep 1 && open http://localhost",
     "build": "docker-compose build --force-rm --no-cache --pull",
-    "deploy": "docker-compose up --build -d",
-    "deploy:staging": "docker-compose up --build -d",
-    "deploy:production": "docker-compose up --build -d",
-    "teardown": "docker rm -f 'adpq2018_web_1' && docker rm -f 'adpq2018_server_1' && docker rm -f 'adpq2018_db_1' && docker rmi 'adpq2018_web' && docker rmi 'adpq2018_server' && docker rmi 'mongo'",
+    "teardown": "docker rm -f 'adpq2018_web_1' && docker rm -f 'adpq2018_server_1' && docker rm -f 'adpq2018_db_1'",
+    "clean:docker": "docker rmi 'adpq2018_web' && docker rmi 'adpq2018_server' && docker rmi 'mongo'",
     "clean:db": "rm -rf ./data"
   },
   "dependencies": {},

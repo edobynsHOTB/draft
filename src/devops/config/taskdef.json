@@ -1,5 +1,11 @@
 {
     "family": "%ECS_FAMILY%",
+    "volumes": [
+        {
+            "name": "adpq-db",
+            "host": "./data/db"
+        }
+    ],
     "containerDefinitions": [
         {
             "image": "%REPOSITORY_URI_SERVER%:v_%BUILD_NUMBER%",
@@ -24,6 +30,19 @@
                 {
                     "containerPort": 80,
                     "hostPort": 80
+                }
+            ]
+        },
+        {
+            "image": "mongo:latest",
+            "name": "adpq-db",
+            "cpu": 10,
+            "memory": 256,
+            "essential": true,
+            "mountPoints": [
+                {
+                    "sourceVolume": "adpq-db",
+                    "containerPath": "/data/db"
                 }
             ]
         }

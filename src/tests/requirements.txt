@@ -1,0 +1,7 @@
+requests
+xmlrunner
+html-testRunner
+coverage
+concurrencytest
+Flask
+Redis

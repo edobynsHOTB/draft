@@ -26,7 +26,7 @@ import sys, unittest, src.QA.QaAdpqShell as QaAdpqShell
         String INSERT value.
         Array INSERT value.
 '''
-class TestGetAgencies(unittest.TestCase):
+class TestSearch(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
@@ -45,7 +45,7 @@ class TestGetAgencies(unittest.TestCase):
     def test_success(self):
         pass
 #         # Attempt to insert
-#         responseBody = self.user.get_agency_list()
+#         responseBody = self.user.get_search_list()
 #           
 #         # Ensure insert
 #         self.assertEqual(responseBody['error'], False,
@@ -94,7 +94,7 @@ class TestGetAgencies(unittest.TestCase):
     def test_missing(self):
         pass
 #         # Missing INSERT value.
-#         responseBody = self.user.get_agency_list()
+#         responseBody = self.user.get_search_list()
 #                
 #         self.assertEqual(responseBody['err']['err'], 'User ID required',
 #                           msg='test_missing assert#1 has failed.')
@@ -105,7 +105,7 @@ class TestGetAgencies(unittest.TestCase):
     def test_null(self):
         pass
 #         # Null INSERT value.
-#         responseBody = self.user.get_agency_list()
+#         responseBody = self.user.get_search_list()
 #          
 #         self.assertEqual(responseBody['err']['err'], 'User ID required',
 #                           msg='test_null assert#1 has failed.')
@@ -116,7 +116,7 @@ class TestGetAgencies(unittest.TestCase):
     def test_int(self):
         pass
 #         # Int INSERT value.
-#         responseBody = self.user.get_agency_list()
+#         responseBody = self.user.get_search_list()
 #          
 #         self.assertEqual(responseBody['error'], True,
 #                           msg='test_int assert#1 has failed.')
@@ -127,7 +127,7 @@ class TestGetAgencies(unittest.TestCase):
     def test_float(self):
         pass
 #         # Float INSERT value.
-#         responseBody = self.user.get_agency_list()
+#         responseBody = self.user.get_search_list()
 #          
 #         self.assertEqual(responseBody['err']['err'], 'user does not exist',
 #                           msg='test_float assert#1 has failed.') 
@@ -138,7 +138,7 @@ class TestGetAgencies(unittest.TestCase):
     def test_string(self):
         pass
 #         # String INSERT value.
-#         responseBody = self.user.get_agency_list("';:.>,</?]}[{!@#$%^&*()-_=+|\"")
+#         responseBody = self.user.get_search_list("';:.>,</?]}[{!@#$%^&*()-_=+|\"")
 #          
 #         self.assertEqual(responseBody['err']['err'], 'user does not exist',
 #                           msg='test_string assert#1 has failed.')
@@ -149,7 +149,7 @@ class TestGetAgencies(unittest.TestCase):
     def test_array(self):
         pass
 #         # Array INSERT value.
-#         responseBody = self.user.get_agency_list(['hodl', 666, [.6, 0], {}])
+#         responseBody = self.user.get_search_list(['hodl', 666, [.6, 0], {}])
 #              
 #         self.assertEqual(responseBody['err']['err'], 'User ID required',
 #                           msg='test_array assert#1 has failed.') 
@@ -173,14 +173,14 @@ class TestGetAgencies(unittest.TestCase):
 def suite():
     suite = unittest.TestSuite()
     
-#     suite.addTest(TestGetAgencies('test_success'))
+#     suite.addTest(TestSearch('test_success'))
 #                       
-#     suite.addTest(TestGetAgencies('test_missing'))
-#     suite.addTest(TestGetAgencies('test_null'))
-#     suite.addTest(TestGetAgencies('test_int'))
-#     suite.addTest(TestGetAgencies('test_float'))
-#     suite.addTest(TestGetAgencies('test_string'))
-#     suite.addTest(TestGetAgencies('test_array'))
+#     suite.addTest(TestSearch('test_missing'))
+#     suite.addTest(TestSearch('test_null'))
+#     suite.addTest(TestSearch('test_int'))
+#     suite.addTest(TestSearch('test_float'))
+#     suite.addTest(TestSearch('test_string'))
+#     suite.addTest(TestSearch('test_array'))
     
     return suite
     

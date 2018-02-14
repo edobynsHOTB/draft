@@ -29,7 +29,8 @@ RUN pip install --trusted-host pypi.python.org -r requirements.txt
 # networking between the running process inside the container and the 
 # outside world
 # Make port 80 available to the world outside this container
-EXPOSE 80
+# EXPOSE 80
+# Not needed for bare bones set up
 
 # Usage: ENV key value
 # Define environment variable

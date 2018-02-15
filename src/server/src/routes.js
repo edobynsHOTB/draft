@@ -33,7 +33,8 @@ var prefix = '/api/v1';
 
 //articleRoutes
     //GET
-        app.route(prefix + '/search').get(articleController.search);
+        app.route(prefix + '/searchArticles').get(articleController.search);
+        //app.route(prefix + '/createTempArticle').get(articleController.createTempArticle); 
         //app.route('/api/v1/articles').get(articleController.getArticles);
     //POST
 

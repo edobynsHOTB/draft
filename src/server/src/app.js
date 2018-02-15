@@ -27,12 +27,11 @@ require('./models/tag');
 require('./models/agency');
 require('./models/article');
 
-//json parser for post calls
+//body parser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json()); 
 
 //routes
-//app.use('/api/v1', require('./routes'));
 var routes = require('./routes'); //import routes
 routes(app);
 

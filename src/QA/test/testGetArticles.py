@@ -26,7 +26,7 @@ import sys, unittest, src.QA.QaAdpqShell as QaAdpqShell
         String INSERT value.
         Array INSERT value.
 '''
-class TestArticles(unittest.TestCase):
+class TestGetArticles(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
@@ -173,14 +173,14 @@ class TestArticles(unittest.TestCase):
 def suite():
     suite = unittest.TestSuite()
     
-#     suite.addTest(TestArticles('test_success'))
+#     suite.addTest(TestGetArticles('test_success'))
 #                       
-#     suite.addTest(TestArticles('test_missing'))
-#     suite.addTest(TestArticles('test_null'))
-#     suite.addTest(TestArticles('test_int'))
-#     suite.addTest(TestArticles('test_float'))
-#     suite.addTest(TestArticles('test_string'))
-#     suite.addTest(TestArticles('test_array'))
+#     suite.addTest(TestGetArticles('test_missing'))
+#     suite.addTest(TestGetArticles('test_null'))
+#     suite.addTest(TestGetArticles('test_int'))
+#     suite.addTest(TestGetArticles('test_float'))
+#     suite.addTest(TestGetArticles('test_string'))
+#     suite.addTest(TestGetArticles('test_array'))
     
     return suite
     

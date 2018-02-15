@@ -42,11 +42,13 @@ class QaADPQShell:
     testFcmId = "abc123321bca"
     
     ## @var URL end point completions.
-    Agencies = 'agencies'
-    Tags = 'tags'
-    Articles = 'articles'
-    Search = 'search'
+    GetAgencies = 'agencies'
+    GetTags = 'tags'
+    GetArticles = 'articles'
+    GetSearch = 'search'
     UsersLogin = 'users/login'
+    
+    BaseURL = ''
         
         
     ## @fn __init__ : Class initializations.
@@ -73,7 +75,7 @@ class QaADPQShell:
     #
     def get_agency_list(self):
         # URL end point.
-        url = self.environment + QaADPQShell.Agencies
+        url = self.environment + QaADPQShell.GetAgencies
 
         # HTTP Action.
         HTTP_action = 'GET'
@@ -146,7 +148,7 @@ class QaADPQShell:
     #
     def get_tag_list(self):
         # URL end point.
-        url = self.environment + QaADPQShell.Tags
+        url = self.environment + QaADPQShell.GetTags
 
         # HTTP Action.
         HTTP_action = 'GET'
@@ -218,7 +220,7 @@ class QaADPQShell:
     #
     def get_article_list(self):
         # URL end point.
-        url = self.environment + QaADPQShell.Articles
+        url = self.environment + QaADPQShell.GetArticles
 
         # HTTP Action.
         HTTP_action = 'GET'
@@ -290,7 +292,7 @@ class QaADPQShell:
     #
     def get_search_list(self):
         # URL end point.
-        url = self.environment + QaADPQShell.Search
+        url = self.environment + QaADPQShell.GetSearch
 
         # HTTP Action.
         HTTP_action = 'GET'

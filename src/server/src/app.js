@@ -1,8 +1,42 @@
-const express = require('express')
-const app = express()
 
-app.get('/', (req, res) => res.send('Hello Server!'))
+var config = require('./config');
+var express = require('express'),
+    app = express(),
+    mongoose = require('mongoose'),
+    bodyParser = require('body-parser'),
+    //tag = require('./models/tag');
+    port = process.env.port || 3001;
 
-app.listen(3001, () => {
-    console.log('Server listening on port 3001')
-})
+//connect to db
+mongoose.Promise = global.Promise;
+
+    const options = {
+        user: config.dbUser,
+        pass: config.dbPassword,
+        auth: {
+            authdb: 'admin'
+        }
+    }
+
+mongoose.connect(config.dbUrl, options);
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+//models
+require('./models/tag');
+require('./models/agency');
+require('./models/article');
+
+//json parser for post calls
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json()); 
+
+//routes
+//app.use('/api/v1', require('./routes'));
+var routes = require('./routes'); //import routes
+routes(app);
+
+//app.get('/', (req, res) => res.send('Hello Server!'))
+
+app.listen(port);
+console.log('Server listening on port 3001'); 

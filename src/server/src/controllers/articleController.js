@@ -3,7 +3,7 @@
 var mongoose = require('mongoose'),
     article = mongoose.model('article');
 
-//GET
+//GET /searchArticles
 exports.search = function (req, res) {
     var keyword = req.query.keyword;
     var returnlist = []; 
@@ -29,7 +29,7 @@ exports.search = function (req, res) {
             articleobj['title'] = art.title;
             articleobj['summary'] = art.summary;
             articleobj['tags'] = art.tags;
-            articleobj['createdAt'] = art.createAt;
+            articleobj['createdAt'] = art.createdAt;
             articleobj['createdBy'] = getAuthorName('tempAuthorName'); 
             articleobj['agency'] = getAgencyName('tempName');
             articleobj['status'] = art.status;
@@ -43,6 +43,68 @@ exports.search = function (req, res) {
         res.json({'data':returnlist}); 
     });      
 };
+
+//Get /articles
+exports.getArticles = function(req, res) {
+    //sort, order, limit
+    var sortField = req.query.sort;
+    var orderString = req.query.order;
+    var limitString = req.query.limit;
+    
+    //to be modified
+    var role = 0; 
+
+    var returnlist = []; 
+    var queryParams = {};
+    
+    var query = article.find(queryParams);
+    
+    if (orderString != null) {
+        var order = parseInt(orderString);
+        
+        if (!isNaN(order)) {
+            if (sortField != null) {
+                var sortObj = {};
+                sortObj[sortField] = order;
+                query.sort(sortObj)
+            }
+        }
+    }
+
+    if (limitString != null) {
+        var limit = parseInt(limitString);
+
+        if (!isNaN(limit)) {
+            query.limit(limit); 
+        }
+    }
+
+    query.exec()
+        .catch(function (err) {
+            res.send(err);
+        });  
+
+    query.then(function(articles) {
+        articles.forEach(function (art, index) {
+            var articleobj = {};
+            articleobj['title'] = art.title;
+            articleobj['summary'] = art.summary;
+            articleobj['tags'] = art.tags;
+            articleobj['createdAt'] = art.createdAt;
+            articleobj['createdBy'] = getAuthorName('tempAuthorName'); 
+            articleobj['agency'] = getAgencyName('tempName');
+            articleobj['status'] = art.status;
+            articleobj['approvedBy'] =  getApproverName('tempApproverName'); 
+            articleobj['description'] = art.description[role];
+            articleobj['attachments'] = art.attachments[role]; 
+            articleobj['views'] = art.views; 
+
+            returnlist.push(articleobj);   
+        }); 
+        res.json({'data':returnlist}); 
+    });
+
+}
 
 //tempcreate not actually going to be a GET - will convert to Post /createArticle
 exports.createTempArticle = function(req, res) {

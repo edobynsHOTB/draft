@@ -34,6 +34,7 @@ var prefix = '/api/v1';
 //articleRoutes
     //GET
         app.route(prefix + '/searchArticles').get(articleController.search);
+        app.route(prefix + '/articles').get(articleController.getArticles);
         //app.route(prefix + '/createTempArticle').get(articleController.createTempArticle); 
         //app.route('/api/v1/articles').get(articleController.getArticles);
     //POST

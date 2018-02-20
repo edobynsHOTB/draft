@@ -26,7 +26,7 @@ import sys, unittest, src.QA.QaAdpqShell as QaAdpqShell
         String INSERT value.
         Array INSERT value.
 '''
-class TestSearch(unittest.TestCase):
+class TestGetSearch(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
@@ -173,7 +173,7 @@ class TestSearch(unittest.TestCase):
 def suite():
     suite = unittest.TestSuite()
     
-#     suite.addTest(TestSearch('test_success'))
+#     suite.addTest(TestGetSearch('test_success'))
 #                       
 #     suite.addTest(TestSearch('test_missing'))
 #     suite.addTest(TestSearch('test_null'))

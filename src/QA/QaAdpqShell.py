@@ -1,7 +1,7 @@
 import requests, sys
 
-environmentBody = { 'staging':'INSERT/api/v1/',
-                    'prod':'Production URL here.'
+environmentBody = { 'staging':'http://adpq-staging-loadbalancer-777882718.us-west-1.elb.amazonaws.com/api/v1/',
+                    'production':'http://adpq-production-loadbalancer-557804625.us-west-1.elb.amazonaws.com/'
                   }
 setEnv = ''
 
@@ -45,10 +45,11 @@ class QaADPQShell:
     GetAgencies = 'agencies'
     GetTags = 'tags'
     GetArticles = 'articles'
-    GetSearch = 'search'
+    SearchArticles = 'searchArticles?'
     UsersLogin = 'users/login'
     
-    BaseURL = ''
+    BaseURL = setEnv
+    searchKeyWord = 'keyword_here'
         
         
     ## @fn __init__ : Class initializations.
@@ -76,6 +77,7 @@ class QaADPQShell:
     def get_agency_list(self):
         # URL end point.
         url = self.environment + QaADPQShell.GetAgencies
+#         url = 'http://adpq-staging.hotbsoftware.com/api/v1/agencies'
 
         # HTTP Action.
         HTTP_action = 'GET'
@@ -127,7 +129,7 @@ class QaADPQShell:
         # Make HTTPS Request.
         response = requests.request(HTTP_action, url, json=body, 
                                     headers=headers, verify=False)
-    
+        
         # Return requests object of json data.
         responseBody = response.json()
         
@@ -135,7 +137,15 @@ class QaADPQShell:
         print('\nget_agency_list\n', responseBody)
         print('response.status_code: ', response.status_code)
         
-        return responseBody
+        # HEREHEREHERHERHERHERHEHREHREHREH
+#         # Iterate through the list items (items are dicts)
+#         for i in range(len(responseBody['data'])):
+#             # Iterate through the dicts within the list.
+#             for keys in responseBody['data'][i]:
+#                 print(keys) 
+
+        
+        return response
     
     
     
@@ -292,7 +302,7 @@ class QaADPQShell:
     #
     def get_search_list(self):
         # URL end point.
-        url = self.environment + QaADPQShell.GetSearch
+        url = self.environment + QaADPQShell.SearchArticles + QaADPQShell.searchKeyWord
 
         # HTTP Action.
         HTTP_action = 'GET'
@@ -438,10 +448,7 @@ class QaADPQShell:
         return responseBody
     
     
-    
-    
-    
-    
+
     
     
     
@@ -461,7 +468,7 @@ def Test_Class():
     user.get_tag_list()
     user.get_article_list()
     user.get_search_list()
-    user.user_login()
+#     user.user_login()
     
     
 #     # Method signature. 
@@ -470,4 +477,4 @@ def Test_Class():
     
     
     
-Test_Class()
+# Test_Class()
